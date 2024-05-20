@@ -13,7 +13,7 @@ When the `virus.notpy3` script is ran it'll infect any other `.notpy3` script(s)
 
 First the virus will open itself and read all lines which contain the phrase "#VCODE". 
 
-Then it'll iterate through each file contained within the current working directory. If a file does not have a `.notpy3` extenion, it'll be ignored. If a file already contains the "#VCODE" phrase, it'll also be ignored. Otherwise the virus will read in the victim script, prepend both `#!/usr/bin/python3` and the previously read "#VCODE" lines to the victim script, then write the result back to the victim script.
+Then it'll iterate through each file contained within the current working directory. If a file does not have a `.notpy3` extenion, it'll be ignored. If a file already contains the "#VCODE" phrase, it'll also be ignored. Otherwise the virus will read in the victim script, prepend both `#!/usr/bin/python3` and the previously read "#VCODE" lines to the victim script, then write the result back to the victim script. At this point the victim script is now infected and if ran will try to repeat this same process when ran before executing its intended functionality.
 
 ## Usage
 ### Running The Virus
@@ -38,6 +38,6 @@ Now if you run any of them they'll try to find and infect other `.notpy3` script
 You can try copying `backup/foo.notpy3` to `a.notpy3` (`cp backup/foo.notpy3 a.notpy3`). Now if you run any of the other scripts (e.g. `./foo.notpy3`), `a.notpy3` will become infect and have the virus prepending to it as well!
 
 ### Restoring The Scripts
-To quickly restore all of the non-virus `.notpy3` scripts you can run the `./restore.sh` script. This will copy the backup copies of all of the scripts in `./backup` to the current directory.
+To quickly restore all of the non-virus `.notpy3` scripts to their original states you can run the `./restore.sh` script. This will copy the backup copies of all of the scripts in `./backup` to the current directory.
 
 If you've messed up the backups you can reset your copy of this repo using `git reset --hard` or you can grab the originals from https://github.com/UMDLARS/py-virus-demo/tree/main/backup
