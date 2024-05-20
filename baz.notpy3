@@ -1,0 +1,4 @@
+#!/usr/bin/python3
+import sys
+
+print("Hi, I am {}".format(sys.argv[0]))
