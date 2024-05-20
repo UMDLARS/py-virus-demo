@@ -35,7 +35,7 @@ After exectuing the virus, check all of the other `.notpy3` files. They should n
 
 Now if you run any of them they'll try to find and infect other `.notpy3` scripts as well.
 
-You can try copying `backup/foo.notpy3` to `a.notpy3` (`cp backup/foo.notpy3 a.notpy3`). Now if you run any of the other scripts (e.g. `./foo.notpy3`), `a.notpy3` will become infect and have the virus prepending to it as well!
+You can try copying `backup/foo.notpy3` to `a.notpy3` (`cp backup/foo.notpy3 a.notpy3`). Now if you run any of the other scripts (e.g. `./foo.notpy3`), `a.notpy3` will become infected and have the virus prepending to it as well!
 
 ### Restoring The Scripts
 To quickly restore all of the non-virus `.notpy3` scripts to their original states you can run the `./restore.sh` script. This will copy the backup copies of all of the scripts in `./backup` to the current directory.
